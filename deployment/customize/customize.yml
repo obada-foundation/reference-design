@@ -1,0 +1,103 @@
+---
+- hosts: rd
+
+  become_user: rd
+  become: yes
+
+  vars_prompt:
+    - name: "customize_docker_image"
+      prompt: "Docker image name"
+      private: no
+      default: "obada/reference-design:develop"
+
+    - name: "customize_logo_path"
+      prompt: "Logo path"
+      private: no
+      default: "/images/obada-logo.svg"
+
+    - name: "customize_logo_text"
+      prompt: "Logo text"
+      private: no
+      default: "Blockchain Demo Site"
+
+    - name: "customize_footer_text"
+      prompt: "Footer text"
+      private: no
+      default: "Copyright © 2018-2022 OBADA Foundation"
+
+    - name: "background_color"
+      prompt: "Page background color"
+      private: no
+      default: "#eff1f4"
+
+    - name: "text_color"
+      prompt: "Main text color"
+      private: no
+      default: "#555555"
+
+    - name: "text_size_base"
+      prompt: "Main text size"
+      private: no
+      default: "15px"
+
+    - name: "link_color"
+      prompt: "Links text color"
+      private: no
+      default: "#3a99d8"
+
+    - name: "header_background_color"
+      prompt: "Background color for top navigation (header)"
+      private: no
+      default: "#ffffff"
+
+    - name: "header_text_color"
+      prompt: "Text color for top navigation (header)"
+      private: no
+      default: "#555555"
+
+    - name: "footer_background_color"
+      prompt: "Background color for bottom navigation (footer)"
+      private: no
+      default: "#cacaca"
+
+    - name: "footer_text_color"
+      prompt: "Text color for bottom navigation (footer)"
+      private: no
+      default: "#ffffff"
+
+    - name: "primary_color"
+      prompt: "Primary color"
+      private: no
+      default: "#e74c3c"
+
+  tasks:
+    - name: Create customize folder.
+      file:
+        path: "/home/rd/customize"
+        state: directory
+        
+    - name: Copy Dockerfile.
+      template:
+        src: "Dockerfile.j2"
+        dest: "/home/rd/customize/Dockerfile"
+        mode: 0644
+
+    - name: Copy scss config file.
+      template:
+        src: "_config.scss.j2"
+        dest: "/home/rd/customize/_config.scss"
+        mode: 0644
+
+    - name: Pull the base reference-design image
+      community.docker.docker_image:
+        name: obada/reference-design:develop
+        source: pull
+
+    - name: Build customized reference design image
+      community.docker.docker_image:
+        build:
+          path: /home/rd/customize
+          dockerfile: /home/rd/customize/Dockerfile
+        name: "{{ customize_docker_image }}"
+        source: build
+        force_source: yes

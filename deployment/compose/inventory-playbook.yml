@@ -1,0 +1,73 @@
+---
+- name: "Creating inventory file to deploy for OBADA services"
+  hosts: localhost
+  connection: local
+
+  vars_prompt:
+    - name: "node_rpc"
+      prompt: "Node RPC"
+      private: no
+      default: "tcp://node.alpha.obada.io:26657"
+
+    - name: "domain"
+      prompt: "Reference design domain (Example: rd.yournet.com)"
+      private: no
+
+    - name: "acme_email"
+      prompt: "Email Notifications About Domain Expiration"
+      private: no
+
+    - name: "ssh_host_ip"
+      prompt: "SSH Host IP"
+      private: no
+
+    - name: "ssh_user"
+      prompt: "SSH User"
+      private: no
+
+    - name: "ssh_port"
+      prompt: "SSH Port"
+      private: no
+      default: 22
+
+    - name: "mysql_password"
+      prompt: "MySQL Password"
+      private: no
+
+    - name: "app_env"
+      prompt: "Laravel application environment"
+      private: no
+      default: staging
+
+    - name: "app_key"
+      prompt: "Laravel application key"
+      private: no
+      default: base64:hOavL29V1sN+SEZqGS+ngiIkIR24pNv3Gm90CwifAq8=
+
+    - name: "aws_access_key"
+      prompt: "AWS S3 Key"
+      private: no
+
+    - name: "aws_access_secret"
+      prompt: "AWS S3 Secret"
+      private: yes
+
+    - name: "aws_region"
+      prompt: "AWS S3 Region"
+      private: no
+
+    - name: "aws_bucket"
+      prompt: "AWS S3 Bucket"
+      private: no
+      default: reference-design-obada
+      
+    - name: "should_become"
+      prompt: "Should Become Sudo or Not (say \"no\" if you provision from the root) from installation?"
+      private: no
+
+  tasks:
+    - name: Generate inventory file
+      template:
+        src: "inventory.j2"
+        dest: "/home/ansible/deployment/inventory"
+        mode: 0600

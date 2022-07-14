@@ -1,0 +1,78 @@
+
+---
+
+- name: Add SSH public key.
+  ansible.posix.authorized_key:
+    user: rd
+    state: present
+    key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/ssh_key.pub') }}"
+  become: "{{ should_become }}"
+
+- name: Configure reference design.
+  block:
+
+    - name: Create necessary folders.
+      file:
+        path: "/home/rd/{{ item }}"
+        state: directory
+      with_items:
+        - traefik
+        - etc
+        - client-helper/data
+        - client-helper/keys
+        - ipfs/export
+        - ipfs/data
+
+    - name: Create acme.json and set a propper permissions
+      file:
+        path: "/home/rd/traefik/acme.json"
+        state: touch
+        mode: 0600
+
+    - name: Copy docker-compose file.
+      template:
+        src: "docker-compose.yml.j2"
+        dest: "/home/rd/docker-compose.yml"
+        mode: 0600
+
+    - name: Copy Laravel .env file.
+      template:
+        src: ".env.j2"
+        dest: "/home/rd/etc/.env"
+        mode: 0644
+
+    - name: Copy public keys for client helper
+      copy:
+        src: 'keys'
+        dest: '/home/rd/client-helper'
+        owner: rd
+        group: rd
+        mode: 0644
+
+    - name: Running docker-compose.
+      community.docker.docker_compose:
+        project_src: "/home/rd"
+        pull: "{{ rd_docker_image == 'obada/reference-design:develop' | ternary('yes', 'no') }}"
+        recreate: always
+
+    - name: Run database migrations
+      community.docker.docker_container_exec:
+        container: reference-design
+        command: /bin/sh -c "php artisan migrate -n --force"
+      register: migration_result
+      when: inventory_hostname != "127.0.0.1"
+
+    - name: "Print migrations result"
+      debug:
+        var: migration_result.stdout
+      when: inventory_hostname != "127.0.0.1"
+
+    - name: "Print migrations errors"
+      debug:
+        var: migration_result.stderr
+      when: inventory_hostname != "127.0.0.1"
+      failed_when: migration_result.rc > 0
+
+      
+  become_user: rd
+  become: yes

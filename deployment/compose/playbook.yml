@@ -1,0 +1,20 @@
+---
+- hosts: rd
+  roles:
+    - { role: jnv.unattended-upgrades, become: "{{ should_become }}" }
+    - { role: geerlingguy.pip, become: "{{ should_become }}" }
+    - { role: geerlingguy.docker, become: "{{ should_become }}" }
+    - rd
+
+  vars:
+    docker_users:
+      - rd
+    pip_install_packages:
+      - name: docker
+      - name: docker-compose
+
+  vars_prompt:
+    - name: "rd_docker_image"
+      prompt: "Reference design docker image (use customize playbook to create custom image)"
+      private: no
+      default: "obada/reference-design:develop"

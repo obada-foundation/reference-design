@@ -1,0 +1,26 @@
+FROM obada/reference-design:develop as base
+
+FROM node:14 as assets
+
+COPY --from=base /app /assets
+COPY _config.scss /assets/resources/sass
+
+WORKDIR /assets
+
+RUN set -e \
+    && npm install \
+    && npm run dev
+
+FROM base
+
+ENV FRONTEND_LOGO_PATH="{{ customize_logo_path }}"
+ENV FRONTEND_LOGO_TEXT="{{ customize_logo_text }}"
+ENV FRONTEND_FOOTER_TEXT="{{ customize_footer_text }}"
+
+COPY --from=assets /assets/public /app/public
+
+RUN chown -R www-data:www-data /app
+
+STOPSIGNAL SIGQUIT
+
+CMD ["/usr/bin/supervisord"]
