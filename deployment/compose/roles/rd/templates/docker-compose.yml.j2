@@ -44,7 +44,7 @@ services:
     volumes:
       - ./etc/.env:/app/.env
 {% if filesystem_driver=='local' %}
-      - ./documents:/app/storage/documents
+      - ./documents:/app/storage/app/documents
 {% endif %}
     restart: always
     labels:
