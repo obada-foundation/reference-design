@@ -43,6 +43,9 @@ services:
     container_name: reference-design
     volumes:
       - ./etc/.env:/app/.env
+{% if filesystem_driver=='local' %}
+      - ./documents:/app/storage/documents
+{% endif %}
     restart: always
     labels:
       - traefik.enable=true

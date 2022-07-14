@@ -92,6 +92,7 @@
       community.docker.docker_image:
         name: obada/reference-design:develop
         source: pull
+        force_source: yes
 
     - name: Build customized reference design image
       community.docker.docker_image:

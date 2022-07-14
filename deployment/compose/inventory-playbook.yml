@@ -44,22 +44,10 @@
       private: no
       default: base64:hOavL29V1sN+SEZqGS+ngiIkIR24pNv3Gm90CwifAq8=
 
-    - name: "aws_access_key"
-      prompt: "AWS S3 Key"
+    - name: "filesystem_driver"
+      prompt: "Default Laravel filesystem driver (local or s3)"
       private: no
-
-    - name: "aws_access_secret"
-      prompt: "AWS S3 Secret"
-      private: yes
-
-    - name: "aws_region"
-      prompt: "AWS S3 Region"
-      private: no
-
-    - name: "aws_bucket"
-      prompt: "AWS S3 Bucket"
-      private: no
-      default: reference-design-obada
+      default: local
       
     - name: "should_become"
       prompt: "Should Become Sudo or Not (say \"no\" if you provision from the root) from installation?"
