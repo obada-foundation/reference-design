@@ -1,5 +1,3 @@
-PROJECT = obada/faucet
-CI_COMMIT_REF_SLUG ?= develop
 SHELL := /bin/sh
 
 customize:
