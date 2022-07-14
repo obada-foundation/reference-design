@@ -18,7 +18,6 @@
       with_items:
         - traefik
         - etc
-        - documents
         - client-helper/data
         - client-helper/keys
         - ipfs/export

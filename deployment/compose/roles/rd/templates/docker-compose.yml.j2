@@ -44,7 +44,7 @@ services:
     volumes:
       - ./etc/.env:/app/.env
 {% if filesystem_driver=='local' %}
-      - ./documents:/app/storage/app/documents
+      - documents:/app/storage/app/documents
 {% endif %}
     restart: always
     labels:
@@ -77,6 +77,10 @@ services:
       - DB_PATH=/home/obada/data
       - IPFS_RPC_URL=ipfs:5001
       - NODE_RPC_URL={{ node_rpc }}
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
     networks:
       - backend
 
@@ -117,3 +121,6 @@ networks:
 
 volumes:
   db_data: {}
+{% if filesystem_driver=='local' %}
+  documents: {}
+{% endif %}
