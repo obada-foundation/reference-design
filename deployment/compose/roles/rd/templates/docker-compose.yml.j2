@@ -73,7 +73,7 @@ services:
     environment:
       - DB_PATH=/home/obada/data
       - IPFS_RPC_URL=ipfs:5001
-      - NODE_RPC_URL=tcp://nft.tradeloopproto.com:26657
+      - NODE_RPC_URL={{ node_rpc }}
     networks:
       - backend
 
