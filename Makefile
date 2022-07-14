@@ -1,5 +1,15 @@
 SHELL := /bin/sh
 
+certificates: ssh/ssh_key
+
+ssh/ssh_key:
+	mkdir -p ssh && docker run \
+		-it \
+		--rm \
+                -v $$(pwd)/ssh:/root/.ssh \
+		alpine:3.15 \
+		sh -c 'apk add openssh && ssh-keygen -t ed25519 -f $$HOME/.ssh/ssh_key -q -N "" && chown 1000:1000 $$HOME/.ssh/ssh_key'
+
 customize:
 	docker run \
 		-it \

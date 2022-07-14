@@ -48,3 +48,35 @@ make deploy/inventory
 make deploy/compose
 ```
 
+## Customize UI for reference-design
+
+After reference design successfully deployed, you can customize basic UI parameters by running command:
+
+```sh
+make customize
+```
+
+For first parameter **Docker image name**, you need to specify a custom container name that going to be build by this command. You can use your organization name as a prefix (like **your-org/reference-design**). After this you can specify customize options or take defaults. Once command will complete you need to redeploy **reference-design**:
+
+```sh
+make deploy/compose
+```
+
+On question "Reference design docker image (use customize playbook to create custom image)" answer with your custom container name (**your-org/reference-design**). Once deploy will complate, you see your custom UI settings.
+
+### Full list of custom UI options
+| Option  | Default value |
+| ------------- | ------------- |
+| Logo path | /images/obada-logo.svg |
+| Logo text | Blockchain Demo Site |
+| Footer text | Copyright © 2018-2022 OBADA Foundation |
+| Page background color | #eff1f4 |
+| Main text color | #555555 | 
+| Main text size | 15px | 
+| Links text color | #3a99d8 | 
+| Background color for top navigation (header) | #ffffff | 
+| Text color for top navigation (header) | #555555 | 
+| Background color for bottom navigation (footer) | #cacaca | 
+| Text color for bottom navigation (footer) | #ffffff | 
+| Primary color | #e74c3c |
+
