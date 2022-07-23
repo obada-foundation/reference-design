@@ -22,10 +22,11 @@ mysql_password={{ mysql_password }}
 # Laravel
 app_env={{ app_env }}
 app_key={{ app_key }}
-aws_access_key={{ aws_access_key }}
-aws_access_secret={{ aws_access_secret }}
-aws_region={{ aws_region }} 
-aws_bucket={{ aws_bucket }}
+aws_access_key={{ aws_access_key | default('') }}
+aws_access_secret={{ aws_access_secret | default('') }}
+aws_region={{ aws_region | default('') }}
+aws_bucket={{ aws_bucket | default('') }}
+filesystem_driver={{ filesystem_driver }}
 
 # Change it to "no" if you going to deploy from the root user
 should_become={{ should_become }}

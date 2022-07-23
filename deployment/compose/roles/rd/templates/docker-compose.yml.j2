@@ -58,6 +58,7 @@ services:
       - traefik.http.services.rd-service.loadbalancer.server.port=80
     depends_on:
       - traefik
+      - db
     logging:
       driver: "json-file"
       options:
@@ -70,6 +71,7 @@ services:
     image: obada/client-helper:develop
     container_name: client-helper
     restart: always
+    user: ${UID}:${GID}
     volumes:
       - ./client-helper/data:/home/obada/data
       - ./client-helper/keys:/home/obada/keys
