@@ -1,6 +1,18 @@
 
 ---
 
+- name: Update apt-cache.
+  apt:
+    update_cache: true
+    force: true
+  become: "{{ should_become }}"
+
+- name: Install nesessary packages.
+  apt:
+    name: acl
+    state: present
+  become: "{{ should_become }}"
+
 - name: Add SSH public key.
   ansible.posix.authorized_key:
     user: rd
