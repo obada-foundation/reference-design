@@ -45,7 +45,7 @@ make deploy/inventory
 ### Deploy reference-design
 
 ```bash
-make deploy/compose
+make deploy/compose/install
 ```
 
 ## Customize UI for reference-design
@@ -59,7 +59,7 @@ make customize
 For first parameter **Docker image name**, you need to specify a custom container name that going to be build by this command. You can use your organization name as a prefix (like **your-org/reference-design**). After this you can specify customize options or take defaults. Once command will complete you need to redeploy **reference-design**:
 
 ```sh
-make deploy/compose
+make deploy/compose/update
 ```
 
 On question "Reference design docker image (use customize playbook to create custom image)" answer with your custom container name (**your-org/reference-design**). Once deploy will complate, you see your custom UI settings.
