@@ -113,6 +113,11 @@ services:
       - 127.0.0.1:3306:3306
     volumes:
       - db_data:/var/lib/mysql
+    healthcheck:
+      test: "mysql -uroot -p{{ mysql_password }} -e 'SELECT 1' reference-design"
+      interval: 1s
+      timeout: 3s
+      retries: 6
     networks:
       - backend
 
