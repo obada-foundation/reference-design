@@ -30,7 +30,7 @@ deploy/inventory:
 		obada/ansible \
 		ansible-playbook inventory-playbook.yml --inventory localhost --connection=local --limit 127.0.0.1
 
-deploy/compose:
+deploy/compose/install:
 	docker run \
 		-it \
 		--rm \
@@ -39,3 +39,13 @@ deploy/compose:
 		-v $$(pwd)/deployment/compose:/home/ansible/deployment \
 		obada/ansible \
 		ansible-playbook playbook.yml --inventory ./inventory
+
+deploy/compose/update:
+	docker run \
+		-it \
+		--rm \
+		-w /home/ansible/deployment \
+		-v $$(pwd)/ssh:/home/ansible/.ssh \
+		-v $$(pwd)/deployment/compose:/home/ansible/deployment \
+		obada/ansible \
+		ansible-playbook playbook.yml --inventory ./inventory --tags reference-design

@@ -73,6 +73,6 @@
       when: inventory_hostname != "127.0.0.1"
       failed_when: migration_result.rc > 0
 
-      
+  tags: reference-design    
   become_user: rd
   become: yes
