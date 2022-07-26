@@ -95,10 +95,6 @@
         force_source: yes
 
     - name: Build customized reference design image
-      community.docker.docker_image:
-        build:
-          path: /home/rd/customize
-          dockerfile: /home/rd/customize/Dockerfile
-        name: "{{ customize_docker_image }}"
-        source: build
-        force_source: yes
+      ansible.builtin.shell: |
+        docker pull obada/reference-design:develop
+        docker build -t {{ customize_docker_image }} -f /home/rd/customize/Dockerfile /home/rd/customize
