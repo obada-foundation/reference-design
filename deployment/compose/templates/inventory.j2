@@ -3,30 +3,30 @@
 
 [rd:vars]
 # SSH
-ansible_ssh_user={{ ssh_user }}
-ansible_ssh_port={{ ssh_port }}
+ansible_ssh_user={{ ssh_user | trim }}
+ansible_ssh_port={{ ssh_port | trim }}
 ansible_ssh_private_key_file=~/.ssh/ssh_key
 ansible_python_interpreter=/usr/bin/python3
 ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 
 # OBADA Node
-node_rpc={{ node_rpc }}
+node_rpc={{ node_rpc | trim }}
 
 # Webserver
-domain={{ domain }}
-acme_email={{ acme_email }}
+domain={{ domain | trim }}
+acme_email={{ acme_email | trim }}
 
 # MySQL
-mysql_password={{ mysql_password }}
+mysql_password={{ mysql_password | trim }}
 
 # Laravel
-app_env={{ app_env }}
-app_key={{ app_key }}
-aws_access_key={{ aws_access_key | default('') }}
-aws_access_secret={{ aws_access_secret | default('') }}
-aws_region={{ aws_region | default('') }}
-aws_bucket={{ aws_bucket | default('') }}
-filesystem_driver={{ filesystem_driver }}
+app_env={{ app_env | trim }}
+app_key={{ app_key | trim }}
+aws_access_key={{ aws_access_key | default('') | trim }}
+aws_access_secret={{ aws_access_secret | default('') | trim }}
+aws_region={{ aws_region | default('') | trim }}
+aws_bucket={{ aws_bucket | default('') | trim }}
+filesystem_driver={{ filesystem_driver | trim }}
 
 # Change it to "no" if you going to deploy from the root user
 should_become={{ should_become }}

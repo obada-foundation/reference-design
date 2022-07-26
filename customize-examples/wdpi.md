@@ -1,10 +1,10 @@
 #### Docker image name [obada/reference-design:develop]
 ```
-thebrokersite/reference-design
+wdpi/reference-design
 ```
 #### Logo path [/images/obada-logo.svg]:
 ```
-https://www.thebrokersite.com/img/tbs_logo.42b6eb65.png
+https://www.wdpi.com/media/logo/websites/2/logo.png
 ```
 #### Logo text [Blockchain Demo Site]:
 ```
@@ -12,15 +12,15 @@ Blockchain Demo Site
 ```
 #### Footer text [Copyright © 2018-2022 OBADA Foundation]:
 ```
-© Copyright 1999 - 2022 The Broker Site BV. All rights reserved.
+© 2022 World Data Products, All Rights Reserved.
 ```
 #### Page background color [#eff1f4]:
 ```
-#f4f5f7
+#eff1f4
 ```
 #### Main text color [#555555]:
 ```
-#161e2e
+#555555
 ```
 #### Main text size [15px]:
 ```
@@ -28,25 +28,25 @@ Blockchain Demo Site
 ```
 #### Links text color [#3a99d8]:
 ```
-#c81e1e
+#3a99d8
 ```
 #### Background color for top navigation (header) [#ffffff]:
 ```
-#c81e1e
+#ffffff
 ```
 #### Text color for top navigation (header) [#555555]:
 ```
-#fff
+#555555
 ```
 #### Background color for bottom navigation (footer) [#cacaca]:
 ```
-#161e2e
+#cacaca
 ```
 #### Text color for bottom navigation (footer) [#ffffff]:
 ```
-#9fa6b2
+#ffffff
 ```
 #### Primary color [#e74c3c]:
 ```
-#e02424
+#e74c3c
 ```
