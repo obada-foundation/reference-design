@@ -50,6 +50,8 @@ make deploy/compose/install
 
 ## Customize UI for reference-design
 
+Please check [this video](https://www.youtube.com/watch?v=5kmtYI3PyPI) if you need more information about how to change color scheme for reference-design installation. 
+
 After reference design successfully deployed, you can customize basic UI parameters by running command:
 
 ```sh
