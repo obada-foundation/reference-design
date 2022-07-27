@@ -16,19 +16,19 @@ Blockchain Demo Site
 ```
 #### Page background color [#eff1f4]:
 ```
-#eff1f4
+#fff
 ```
 #### Main text color [#555555]:
 ```
-#555555
+#333
 ```
 #### Main text size [15px]:
 ```
-15px
+16px
 ```
 #### Links text color [#3a99d8]:
 ```
-#3a99d8
+#0058a1
 ```
 #### Background color for top navigation (header) [#ffffff]:
 ```
@@ -36,17 +36,17 @@ Blockchain Demo Site
 ```
 #### Text color for top navigation (header) [#555555]:
 ```
-#555555
+#333
 ```
 #### Background color for bottom navigation (footer) [#cacaca]:
 ```
-#cacaca
+#434b52
 ```
 #### Text color for bottom navigation (footer) [#ffffff]:
 ```
-#ffffff
+rgba(255,255,255,0.75)
 ```
 #### Primary color [#e74c3c]:
 ```
-#e74c3c
+#00aa65
 ```
