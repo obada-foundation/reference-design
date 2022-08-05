@@ -61,15 +61,20 @@
         group: rd
         mode: 0644
 
+    - name: Pull containers.
+      community.docker.docker_compose:
+        project_src: "/home/rd"
+        pull: yes
+      when:  rd_docker_image == 'obada/reference-design:develop'
+
     - name: Running docker-compose.
       community.docker.docker_compose:
         project_src: "/home/rd"
-        pull: "{{ rd_docker_image == 'obada/reference-design:develop' | ternary('yes', 'no') }}"
         recreate: always
 
     - name: Give 5 seconds until everything is restarted
-      ansible.builtin.pause:
-        seconds: 5
+      ansible.builtin.wait_for:
+        timeout: 5
 
     - name: Run database migrations
       community.docker.docker_container_exec:
