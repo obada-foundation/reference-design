@@ -53,6 +53,18 @@
       prompt: "Should Become Sudo or Not (say \"no\" if you provision from the root) from installation?"
       private: no
 
+    - name: "mount_code"
+      promt: "Mount source code"
+      default: no
+
+    - name: "ipfs_gateway"
+      promt: "IPFS OBADA test gateway"
+      default: "http://ipfs.alpha.obada.io:8080"
+
+    - name: "ipfs_api"
+      promt: "IPFS API (default is not secure)"
+      default: "ipfs.alpha.obada.io:5001"
+
   tasks:
     - name: Generate inventory file
       template:

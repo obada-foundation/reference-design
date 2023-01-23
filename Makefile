@@ -49,3 +49,31 @@ deploy/compose/update:
 		-v $$(pwd)/deployment/compose:/home/ansible/deployment \
 		obada/ansible \
 		ansible-playbook playbook.yml --inventory ./inventory --tags reference-design
+
+deploy/compose/local:
+	git clone git@github.com:obada-foundation/example-client-system $$(pwd)/deployment/compose/reference-design || true
+
+	docker run \
+		--rm \
+		 -it \
+		 -v $$(pwd)/deployment/compose/reference-design/src:/app \
+		 -w /app \
+		 composer:2.2.12 \
+		sh -c "composer install --ignore-platform-req=ext-bcmath"
+
+	docker run \
+		--rm \
+		-it \
+		-v $$(pwd)/deployment/compose/reference-design/src:/app \
+		-w /app \
+		node:14 \
+		sh -c "npm install && npm run dev"
+
+
+	docker run \
+		-it \
+		--rm \
+		-w /home/ansible/deployment \
+		-v $$(pwd)/deployment/compose:/home/ansible/deployment \
+		obada/ansible \
+		ansible-playbook playbook.yml --inventory ./inventory-local --tags reference-design --connection=local

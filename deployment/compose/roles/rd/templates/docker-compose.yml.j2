@@ -75,9 +75,10 @@ services:
     volumes:
       - ./client-helper/data:/home/obada/data
       - ./client-helper/keys:/home/obada/keys
+      - ./client-helper/keyring:/home/obada/keyring
     environment:
       - DB_PATH=/home/obada/data
-      - IPFS_RPC_URL=ipfs:5001
+      - IPFS_RPC_URL={{ ipfs_api }}
       - NODE_RPC_URL={{ node_rpc }}
     logging:
       driver: "json-file"
