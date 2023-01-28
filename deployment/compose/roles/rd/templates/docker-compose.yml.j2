@@ -34,6 +34,7 @@ services:
       - '--entrypoints.https.address=:443'
       - '--certificatesResolvers.letsencrypt.acme.email={{ acme_email }}'
       - '--certificatesResolvers.letsencrypt.acme.storage=acme.json'
+      - '--certificatesresolvers.letsencrypt.acme.httpChallenge=true'
       - '--certificatesResolvers.letsencrypt.acme.httpChallenge.entryPoint=http'
       - '--log=true'
       - '--log.level=DEBUG'
