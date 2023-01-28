@@ -104,6 +104,36 @@ services:
       - frontend
       - backend
 
+  redis:
+    image: redis
+    restart: always
+    ports:
+      - '127.0.0.1:6379:6379'
+    volumes: 
+      - ./redis:/data
+    networks:
+      - backend
+
+  worker:
+    image: {{ rd_docker_image }}
+    volumes:
+      - ./etc/.env:/app/.env
+{% if filesystem_driver=='local' %}
+      - documents:/app/storage/app/documents
+{% endif %}
+    restart: always
+    command: php artisan queue:work -v
+    scale: 3
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+    depends_on:
+      - db
+      - redis
+    networks:
+      - backend
+  
   db:
     image: mysql:8
     container_name: db

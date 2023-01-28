@@ -65,6 +65,10 @@
       promt: "IPFS API (default is not secure)"
       default: "ipfs.alpha.obada.io:5001"
 
+    - name: "sentry_dsn"
+      promt: "The Sentry DSN tells the SDK where to send the events to"
+      default: ""
+
   tasks:
     - name: Generate inventory file
       template:

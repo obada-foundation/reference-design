@@ -80,7 +80,7 @@
     - name: Run database migrations
       community.docker.docker_container_exec:
         container: reference-design
-        command: /bin/sh -c "php artisan migrate -n --force"
+        command: /bin/sh -c "php artisan migrate -n --force && echo "" > ./storage/logs/laravel.log && chmod 777 ./storage/logs/laravel.log"
       register: migration_result
       when: inventory_hostname != "127.0.0.1"
 

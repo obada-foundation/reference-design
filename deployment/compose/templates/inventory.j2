@@ -28,6 +28,9 @@ aws_region={{ aws_region | default('') | trim }}
 aws_bucket={{ aws_bucket | default('') | trim }}
 filesystem_driver={{ filesystem_driver | trim }}
 
+# Sentry configuration
+sentry_dsn={{ sentry_dsn }}
+
 # Change it to "no" if you going to deploy from the root user
 should_become={{ should_become }}
 
