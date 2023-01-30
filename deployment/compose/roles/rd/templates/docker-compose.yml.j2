@@ -81,6 +81,7 @@ services:
       - DB_PATH=/home/obada/data
       - IPFS_RPC_URL={{ ipfs_api }}
       - NODE_RPC_URL={{ node_rpc }}
+      - SENTRY_DSN={{ sentry_dsn }}
     logging:
       driver: "json-file"
       options:
@@ -111,6 +112,25 @@ services:
       - '127.0.0.1:6379:6379'
     volumes: 
       - ./redis:/data
+    networks:
+      - backend
+
+  events:
+    image: {{ rd_docker_image }}
+    volumes:
+      - ./etc/.env:/app/.env
+{% if filesystem_driver=='local' %}
+      - documents:/app/storage/app/documents
+{% endif %}
+    restart: always
+    command: php artisan client-helper:events
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "1m"
+    depends_on:
+      - db
+      - redis
     networks:
       - backend
 
