@@ -1,0 +1,34 @@
+---
+- hosts: rd
+
+  tasks:
+    - name: Delete all devices
+      community.docker.docker_container_exec:
+        container: reference-design
+        command: /bin/sh -c "php artisan tinker --execute='Device::all()->each(fn ($d) => $d->delete())'"
+      when: inventory_hostname != "127.0.0.1"
+
+    - name: Delete all users
+      community.docker.docker_container_exec:
+        container: reference-design
+        command: /bin/sh -c "php artisan tinker --execute='User::all()->each(fn ($u) => $u->delete())'"
+      when: inventory_hostname != "127.0.0.1"
+
+    - name: Delete keyring data
+      community.docker.docker_container_exec:
+        container: client-helper
+        command: /bin/sh -c "rm ./keyring/keyring-test/*"
+      when: inventory_hostname != "127.0.0.1"
+
+    - name: Delete data
+      community.docker.docker_container_exec:
+        container: client-helper
+        command: /bin/sh -c "rm ./data/client-helper/*"
+      when: inventory_hostname != "127.0.0.1"
+
+    - name: Restart client-helper
+      community.docker.docker_container:
+        name: client-helper
+        state: started
+        restart: yes
+      when: inventory_hostname != "127.0.0.1"

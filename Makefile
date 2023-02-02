@@ -50,6 +50,18 @@ deploy/compose/update:
 		obada/ansible \
 		ansible-playbook playbook.yml --inventory ./inventory --tags reference-design
 
+deploy/compose/cleanup:
+	docker run \
+		-it \
+		--rm \
+		-w /home/ansible/deployment \
+		-v $$(pwd)/ssh:/home/ansible/.ssh \
+		-v $$(pwd)/deployment/compose:/home/ansible/deployment \
+		obada/ansible \
+		ansible-playbook cleanup-playbook.yml --inventory ./inventory
+
+
+
 deploy/compose/local:
 	git clone git@github.com:obada-foundation/example-client-system $$(pwd)/deployment/compose/reference-design || true
 
