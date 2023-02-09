@@ -1,6 +1,6 @@
 ## Deploying reference-design
 
-Installation script assumes that you use **Ubuntu 20.04**. The deployment script can be executed from any machine that can run docker, shell and makefiles. Please check [this video](https://www.youtube.com/watch?v=QFU4kyESciM) if you need more information about the installation details.
+Installation script assumes that you use **Ubuntu 22.04**. The deployment script can be executed from any machine that can run docker, shell and makefiles. Please check [this video](https://www.youtube.com/watch?v=QFU4kyESciM) if you need more information about the installation details.
 
 ### Install required packages
 
