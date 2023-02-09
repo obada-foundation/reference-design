@@ -8,7 +8,7 @@
       prompt: "Node RPC"
       private: no
       default: "tcp://node.alpha.obada.io:26657"
-
+      
     - name: "domain"
       prompt: "Reference design domain (Example: rd.yournet.com)"
       private: no
@@ -54,19 +54,19 @@
       private: no
 
     - name: "mount_code"
-      promt: "Mount source code"
+      prompt: "Mount source code"
       default: no
 
     - name: "ipfs_gateway"
-      promt: "IPFS OBADA test gateway"
+      prompt: "IPFS OBADA test gateway"
       default: "http://ipfs.alpha.obada.io:8080"
 
     - name: "ipfs_api"
-      promt: "IPFS API (default is not secure)"
+      prompt: "IPFS API (default is not secure)"
       default: "ipfs.alpha.obada.io:5001"
 
     - name: "sentry_dsn"
-      promt: "The Sentry DSN tells the SDK where to send the events to"
+      prompt: "The Sentry DSN tells the SDK where to send the events to"
       default: ""
 
   tasks:
