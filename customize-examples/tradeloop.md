@@ -10,11 +10,16 @@ https://public.tradeloopproto.com/img/tradeloop-logo.svg
 
 #### Logo text [Blockchain Demo Site]:
 ```sh
-Copyright © 1995-2022 Tradeloop Corporation
+Blockchain Demo Site
 ```
 
 #### Logo height [20]:
 ```sh
 20
+```
+
+#### Footer text [Copyright © 2018-2023 OBADA Foundation]:
+```sh
+Copyright © 1995-2022 Tradeloop Corporation
 ```
 
