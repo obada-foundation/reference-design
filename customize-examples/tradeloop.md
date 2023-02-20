@@ -20,6 +20,6 @@ Blockchain Demo Site
 
 #### Footer text [Copyright © 2018-2023 OBADA Foundation]:
 ```sh
-Copyright © 1995-2022 Tradeloop Corporation
+Copyright © 1995-2023 Tradeloop Corporation
 ```
 
