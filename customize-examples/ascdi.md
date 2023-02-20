@@ -10,6 +10,12 @@ https://www.ascdi.com/wp-content/uploads/2020/11/ascdilogonew-notext.png
 ```
 Blockchain Demo Site
 ```
+
+#### Logo height [20]:
+```sh
+60
+```
+
 #### Footer text [Copyright © 2018-2022 OBADA Foundation]:
 ```
 Copyright © 2023 ASCDI

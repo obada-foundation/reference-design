@@ -10,6 +10,12 @@ https://www.wdpi.com/media/logo/websites/2/logo.png
 ```
 Blockchain Demo Site
 ```
+
+#### Logo height [20]:
+```sh
+20
+```
+
 #### Footer text [Copyright © 2018-2022 OBADA Foundation]:
 ```
 © 2022 World Data Products, All Rights Reserved.

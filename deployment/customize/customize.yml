@@ -20,10 +20,15 @@
       private: no
       default: "Blockchain Demo Site"
 
+    - name: "logo_height"
+      prompt: "Logo height"
+      private: no
+      default: "20"
+
     - name: "customize_footer_text"
       prompt: "Footer text"
       private: no
-      default: "Copyright © 2018-2022 OBADA Foundation"
+      default: "Copyright © 2018-2023 OBADA Foundation"
 
     - name: "background_color"
       prompt: "Page background color"

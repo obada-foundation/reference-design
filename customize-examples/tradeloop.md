@@ -13,3 +13,8 @@ https://public.tradeloopproto.com/img/tradeloop-logo.svg
 Copyright © 1995-2022 Tradeloop Corporation
 ```
 
+#### Logo height [20]:
+```sh
+20
+```
+
