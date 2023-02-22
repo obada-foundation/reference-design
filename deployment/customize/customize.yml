@@ -10,6 +10,11 @@
       private: no
       default: "obada/reference-design:develop"
 
+    - name: "site_name"
+      prompt: "Site name for the initial page"
+      private: no
+      default: "OBADA Reference Design"
+
     - name: "customize_logo_path"
       prompt: "Logo path"
       private: no

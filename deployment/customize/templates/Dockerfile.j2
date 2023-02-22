@@ -17,6 +17,7 @@ ENV FRONTEND_LOGO_PATH="{{ customize_logo_path }}"
 ENV FRONTEND_LOGO_TEXT="{{ customize_logo_text }}"
 ENV FRONTEND_LOGO_HEIGHT="{{ logo_height }}"
 ENV FRONTEND_FOOTER_TEXT="{{ customize_footer_text }}"
+ENV SITE_NAME="{{ site_name }}"
 
 COPY --from=assets /assets/public /app/public
 
