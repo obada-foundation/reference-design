@@ -3,6 +3,11 @@
 tradeloop/reference-design
 ```
 
+#### Site name for the initial page [OBADA Reference Design]
+```sh
+Tradeloop Reference Design
+```
+
 #### Logo path [/images/obada-logo.svg]:
 ```sh
 https://public.tradeloopproto.com/img/tradeloop-logo.svg
