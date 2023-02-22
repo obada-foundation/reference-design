@@ -2,6 +2,10 @@
 ```
 thebrokersite/reference-design
 ```
+#### Site name for the initial page [OBADA Reference Design]
+```sh
+The Broker Site Reference Design
+```
 #### Logo path [/images/obada-logo.svg]:
 ```
 https://www.thebrokersite.com/img/tbs_logo.42b6eb65.png
