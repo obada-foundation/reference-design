@@ -2,6 +2,10 @@
 ```
 wdpi/reference-design
 ```
+#### Site name for the initial page [OBADA Reference Design]
+```sh
+World Data Products Reference Design
+```
 #### Logo path [/images/obada-logo.svg]:
 ```
 https://www.wdpi.com/media/logo/websites/2/logo.png
