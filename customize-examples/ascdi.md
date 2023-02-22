@@ -2,6 +2,10 @@
 ```
 ascdi/reference-design
 ```
+#### Site name for the initial page [OBADA Reference Design]
+```sh
+ASCDI Reference Design
+```
 #### Logo path [/images/obada-logo.svg]:
 ```
 https://www.ascdi.com/wp-content/uploads/2020/11/ascdilogonew-notext.png
