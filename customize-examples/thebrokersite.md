@@ -8,7 +8,7 @@ The Broker Site Reference Design
 ```
 #### Logo path [/images/obada-logo.svg]:
 ```
-https://www.thebrokersite.com/img/tbs_logo.42b6eb65.png
+https://www.thebrokersite.com/img/tbs_logo_new_white.6e39b5f0.png
 ```
 #### Logo text [Blockchain Demo Site]:
 ```
