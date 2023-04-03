@@ -12,7 +12,7 @@ https://www.thebrokersite.com/img/tbs_logo.42b6eb65.png
 ```
 #### Logo text [Blockchain Demo Site]:
 ```
-Blockchain Demo Site
+Blockchain TBS Demo Site
 ```
 
 #### Logo height [20]:
@@ -22,7 +22,7 @@ Blockchain Demo Site
 
 #### Footer text [Copyright © 2018-2023 OBADA Foundation]:
 ```
-© Copyright 1999 - 2022 The Broker Site BV. All rights reserved.
+© Copyright 1999 - 2023 The Broker Site BV. All rights reserved.
 ```
 #### Page background color [#eff1f4]:
 ```
