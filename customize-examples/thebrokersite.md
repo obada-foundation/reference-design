@@ -20,7 +20,7 @@ Blockchain Demo Site
 20
 ```
 
-#### Footer text [Copyright © 2018-2022 OBADA Foundation]:
+#### Footer text [Copyright © 2018-2023 OBADA Foundation]:
 ```
 © Copyright 1999 - 2022 The Broker Site BV. All rights reserved.
 ```
