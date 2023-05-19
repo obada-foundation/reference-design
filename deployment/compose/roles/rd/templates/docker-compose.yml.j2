@@ -81,7 +81,10 @@ services:
       - DB_PATH=/home/obada/data
       - IPFS_RPC_URL={{ ipfs_api }}
       - NODE_RPC_URL={{ node_rpc }}
+      - NODE_GRPC_URL={{ node_grpc }}
       - SENTRY_DSN={{ sentry_dsn }}
+      - REGISTRY_URL={{ registry_grpc }}
+      - REGISTRY_HTTP_URL={{ registry_http }}
     logging:
       driver: "json-file"
       options:
