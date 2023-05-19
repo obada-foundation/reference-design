@@ -11,6 +11,11 @@ ansible_ssh_common_args='-o StrictHostKeyChecking=no'
 
 # OBADA Node
 node_rpc={{ node_rpc | trim }}
+node_grpc=node.alpha.obada.io:9090
+
+# OBADA REGISTRY
+registry_grpc=registry.beta.obada.io:2018
+registry_http=https://registry.beta.obada.io
 
 # Webserver
 domain={{ domain | trim }}
