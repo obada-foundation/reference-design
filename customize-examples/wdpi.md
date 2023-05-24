@@ -22,7 +22,7 @@ Blockchain Demo Site
 
 #### Footer text [Copyright © 2018-2023 OBADA Foundation]:
 ```
-© 2022 World Data Products, All Rights Reserved.
+© 2023 World Data Products, All Rights Reserved.
 ```
 #### Page background color [#eff1f4]:
 ```
