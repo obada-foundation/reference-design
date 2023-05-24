@@ -20,7 +20,7 @@ Blockchain Demo Site
 20
 ```
 
-#### Footer text [Copyright © 2018-2022 OBADA Foundation]:
+#### Footer text [Copyright © 2018-2023 OBADA Foundation]:
 ```
 © 2022 World Data Products, All Rights Reserved.
 ```
