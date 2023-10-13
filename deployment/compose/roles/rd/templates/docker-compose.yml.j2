@@ -1,6 +1,7 @@
 version: "3.8"
 
 services:
+{% if traefik_enabled == true %}
   traefik:
     image: traefik:v2.6.6
     container_name: traefik
@@ -38,6 +39,7 @@ services:
       - '--certificatesResolvers.letsencrypt.acme.httpChallenge.entryPoint=http'
       - '--log=true'
       - '--log.level=DEBUG'
+{% endif %}
 
   app:
     image: {{ rd_docker_image }}
@@ -48,6 +50,7 @@ services:
       - documents:/app/storage/app/documents
 {% endif %}
     restart: always
+{% if traefik_enabled == true %}
     labels:
       - traefik.enable=true
       - traefik.http.routers.rd.rule=Host(`{{ domain }}`)
@@ -57,8 +60,14 @@ services:
       - traefik.http.routers.rd.tls.certresolver=letsencrypt
       - traefik.http.routers.rd.service=rd-service
       - traefik.http.services.rd-service.loadbalancer.server.port=80
+{% else %}
+    ports:
+      - 80:80
+{% endif %}
     depends_on:
+{% if traefik_enabled == true %}
       - traefik
+{% endif %}
       - db
     logging:
       driver: "json-file"

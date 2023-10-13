@@ -19,7 +19,7 @@
     state: present
     key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/ssh_key.pub') }}"
   become: "{{ should_become }}"
-
+  
 - name: Configure reference design.
   block:
 
@@ -29,6 +29,13 @@
         state: directory
       with_items:
         - traefik
+      when:  traefik_enabled == true
+
+    - name: Create necessary folders.
+      file:
+        path: "/home/rd/{{ item }}"
+        state: directory
+      with_items:
         - etc
         - client-helper/data
         - client-helper/keys
@@ -41,6 +48,7 @@
         path: "/home/rd/traefik/acme.json"
         state: touch
         mode: 0600
+      when:  traefik_enabled == true
 
     - name: Copy docker-compose file.
       template:
