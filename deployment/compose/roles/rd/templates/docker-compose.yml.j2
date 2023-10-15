@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-{% if traefik_enabled == true %}
+{% if traefik_enabled == 'yes' %}
   traefik:
     image: traefik:v2.6.6
     container_name: traefik
@@ -50,7 +50,7 @@ services:
       - documents:/app/storage/app/documents
 {% endif %}
     restart: always
-{% if traefik_enabled == true %}
+{% if traefik_enabled == 'yes' %}
     labels:
       - traefik.enable=true
       - traefik.http.routers.rd.rule=Host(`{{ domain }}`)
@@ -65,7 +65,7 @@ services:
       - 80:80
 {% endif %}
     depends_on:
-{% if traefik_enabled == true %}
+{% if traefik_enabled == 'yes' %}
       - traefik
 {% endif %}
       - db
@@ -174,7 +174,11 @@ services:
       - MYSQL_ROOT_PASSWORD={{ mysql_password }}
       - MYSQL_DATABASE=reference-design
     ports:
+{% if expose_mysql == 'yes' %}
+      - 0.0.0.0:3306:3306
+{% else %}
       - 127.0.0.1:3306:3306
+{% endif %}
     volumes:
       - db_data:/var/lib/mysql
     healthcheck:
